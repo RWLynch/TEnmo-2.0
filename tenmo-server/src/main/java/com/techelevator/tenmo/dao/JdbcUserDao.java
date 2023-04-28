@@ -66,7 +66,7 @@ public class JdbcUserDao implements UserDao {
     public User findByUsername(String username) {
         if (username == null) throw new IllegalArgumentException("Username cannot be null");
 
-        String sql = "SELECT user_id, username, password_hash FROM tenmo_user WHERE username = ?;";
+        String sql = "SELECT user_id, username, first_name, last_name, email, phone, password_hash, profile_picture FROM tenmo_user WHERE username = ?;";
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, username);
         if (rowSet.next()) {
             return mapRowToUser(rowSet);
@@ -104,7 +104,7 @@ public class JdbcUserDao implements UserDao {
         user.setFirstName(rs.getString("first_name"));
         user.setLastName(rs.getString("last_name"));
         user.setEmail(rs.getString("email"));
-        user.setEmail(rs.getString("phone"));
+        user.setPhone(rs.getString("phone"));
         user.setProfilePicture(rs.getString("profile_picture"));
         user.setPassword(rs.getString("password_hash"));
         user.setActivated(true);
