@@ -29,6 +29,7 @@ CREATE TABLE tenmo_user (
 	email varchar(50) UNIQUE NOT NULL,
 	phone varchar(10) UNIQUE,
 	password_hash varchar(200) NOT NULL,
+	profile_picture varchar(200),
 	role varchar(20),
 	CONSTRAINT PK_tenmo_user PRIMARY KEY (user_id),
 	CONSTRAINT UQ_username UNIQUE (username),
