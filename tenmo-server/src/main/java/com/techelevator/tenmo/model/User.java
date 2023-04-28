@@ -10,6 +10,11 @@ public class User {
 
    private int id;
    private String username;
+   private String firstName;
+   private String lastName;
+   private String email;
+   private String phone;
+   private String profilePicture;
    @JsonIgnore // prevent from being sent to client
    private String password;
    @JsonIgnore
@@ -18,12 +23,17 @@ public class User {
 
    public User() { }
 
-   public User(int id, String username, String password, String authorities) {
+   public User(int id, String username, String firstName, String lastName, String email, String phone, String profilePicture, String password, boolean activated, Set<Authority> authorities) {
       this.id = id;
       this.username = username;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.phone = phone;
+      this.profilePicture = profilePicture;
       this.password = password;
+      this.activated = activated;
       if(authorities != null) this.setAuthorities(authorities);
-      this.activated = true;
    }
 
    public int getId() {
@@ -40,6 +50,46 @@ public class User {
 
    public void setUsername(String username) {
       this.username = username;
+   }
+
+   public String getFirstName() {
+      return firstName;
+   }
+
+   public void setFirstName(String firstName) {
+      this.firstName = firstName;
+   }
+
+   public String getLastName() {
+      return lastName;
+   }
+
+   public void setLastName(String lastName) {
+      this.lastName = lastName;
+   }
+
+   public String getEmail() {
+      return email;
+   }
+
+   public void setEmail(String email) {
+      this.email = email;
+   }
+
+   public String getPhone() {
+      return phone;
+   }
+
+   public void setPhone(String phone) {
+      this.phone = phone;
+   }
+
+   public String getProfilePicture() {
+      return profilePicture;
+   }
+
+   public void setProfilePicture(String profilePicture) {
+      this.profilePicture = profilePicture;
    }
 
    public String getPassword() {

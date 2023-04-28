@@ -39,7 +39,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public User getUserById(int userId) {
-        String sql = "SELECT user_id, username, password_hash FROM tenmo_user WHERE user_id = ?";
+        String sql = "SELECT user_id, username, first_name, last_name, email, phone, password_hash FROM tenmo_user WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         if (results.next()) {
             return mapRowToUser(results);
@@ -75,13 +75,14 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password) {
+    public boolean create(String username, String firstName, String lastName, String email, String phone, String password, String profilePicture) {
 
         // create user
-        String sql = "INSERT INTO tenmo_user (username, password_hash) VALUES (?, ?) RETURNING user_id";
+        String sql = "INSERT INTO tenmo_user (username, first_name, last_name, email, phone, password_hash, profile_picture) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING user_id";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         Integer newUserId;
-        newUserId = jdbcTemplate.queryForObject(sql, Integer.class, username, password_hash);
+        newUserId = jdbcTemplate.queryForObject(sql, Integer.class, username, firstName, lastName, email, phone, password_hash, profilePicture);
 
         if (newUserId == null) return false;
 
@@ -100,6 +101,11 @@ public class JdbcUserDao implements UserDao {
         User user = new User();
         user.setId(rs.getInt("user_id"));
         user.setUsername(rs.getString("username"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
+        user.setEmail(rs.getString("phone"));
+        user.setProfilePicture(rs.getString("profile_picture"));
         user.setPassword(rs.getString("password_hash"));
         user.setActivated(true);
         user.setAuthorities("USER");
