@@ -24,10 +24,16 @@ CREATE SEQUENCE seq_user_id
 CREATE TABLE tenmo_user (
 	user_id int NOT NULL DEFAULT nextval('seq_user_id'),
 	username varchar(50) UNIQUE NOT NULL,
+	first_name varchar(20) NOT NULL,
+	last_name varchar(20) NOT NULL,
+	email varchar(50) UNIQUE NOT NULL,
+	phone varchar(10) UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(20),
 	CONSTRAINT PK_tenmo_user PRIMARY KEY (user_id),
-	CONSTRAINT UQ_username UNIQUE (username)
+	CONSTRAINT UQ_username UNIQUE (username),
+	CONSTRAINT UQ_email UNIQUE (email),
+	CONSTRAINT UQ_phone UNIQUE (phone)
 );
 
 CREATE SEQUENCE seq_account_id
@@ -72,3 +78,5 @@ INSERT INTO transfer_type (transfer_type_desc) VALUES ('Request');
 INSERT INTO transfer_type (transfer_type_desc) VALUES ('Send');
 
 COMMIT;
+
+ROLLBACK;

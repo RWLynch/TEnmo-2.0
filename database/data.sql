@@ -1,0 +1,2 @@
+INSERT INTO tenmo_user (username, first_name, last_name, email, phone, password_hash, role)
+VALUES ('admin','David', 'Jackson', 'djackson@proton.me', '5555318008','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
