@@ -1,13 +1,17 @@
 import axios from 'axios';
 
+const http = axios.create({
+  baseURL: "http://localhost:8080"
+});
+
 export default {
 
-  login(user) {
-    return axios.post('/login', user)
+  login(payload) {
+    return http.post('/login', payload)
   },
 
   register(user) {
-    return axios.post('/register', user)
+    return http.post('/register', user)
   },
 
   getCurrentUser() {

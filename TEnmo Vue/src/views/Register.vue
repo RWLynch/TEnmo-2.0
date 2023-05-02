@@ -11,11 +11,31 @@
         </div>
         <div class="form-input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" v-model="user.password" required />
+          <input type="text" id="password" v-model="user.password" required />
         </div>
         <div class="form-input-group">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+          <input type="text" id="confirmPassword" v-model="user.confirmPassword" required />
+        </div>
+        <div class="form-input-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" v-model="user.firstName" required />
+        </div>
+        <div class="form-input-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" v-model="user.lastName" required />
+        </div>
+        <div class="form-input-group">
+          <label for="emailAddress">Email Address</label>
+          <input type="text" id="emailAddress" v-model="user.email" required />
+        </div>
+        <div class="form-input-group">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" v-model="user.phone" />
+        </div>
+        <div class="form-input-group">
+          <label for="profilePicture">Photo URL</label>
+          <input type="text" id="profilePicture" v-model="user.profilePicture" />
         </div>
         <button type="submit">Create Account</button>
         <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
@@ -34,6 +54,11 @@
           username: '',
           password: '',
           confirmPassword: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          profilePicture: '',
           role: 'user',
         },
         registrationErrors: false,

@@ -16,7 +16,7 @@ if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
-export default new Vuex.Store({
+const store =  new Vuex.Store({
   state: {
     latest: null,
     token: currentToken || '',
@@ -43,4 +43,8 @@ export default new Vuex.Store({
       state.latest = id;
     }
   },
+})
+
+new Vue({
+  store
 })
