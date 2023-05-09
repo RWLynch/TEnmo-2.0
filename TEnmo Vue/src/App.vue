@@ -7,7 +7,10 @@ const authStore = useStore();
 
 <template>
   <div>
-    <img class="logo" src="src\assets\TEnmo logo.png" alt="" />
+    <header>
+    <img class="logo" src="src\assets\TEnmo logo.png" alt="the" />
+    </header>
+    <body>
     <nav>
       <div>
         <RouterLink class="link" to="/">
@@ -31,11 +34,16 @@ const authStore = useStore();
         </RouterLink>
       </div>
     </nav>
+  </body>
   </div>
   <RouterView />
 </template>
 
 <style>
+header {
+  background-color: white;
+}
+
 a {
   color: white;
   font-size: 30px;
@@ -43,11 +51,16 @@ a {
   text-decoration: none;
 }
 .logo {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
   max-width: 100vw;
   padding: 0;
   margin: 0;
 }
 body {
+  margin-top: 120px;
   background-color: #b5dfa4;
 }
+
 </style>
