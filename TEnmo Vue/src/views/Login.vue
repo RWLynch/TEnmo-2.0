@@ -33,6 +33,7 @@
   
   <script>
   import authService from "../services/AuthService";
+  import { useStore } from '../stores/authStore';
   
   export default {
     name: "login",
@@ -48,13 +49,16 @@
     },
     methods: {
       login() {
+
+        const authStore = useStore();
+
         authService
           .login(this.user)
           .then((response) => {
             console.log(response.status)
             if (response.status == 200) {
-              $pinia.commit("SET_AUTH_TOKEN", response.data.token);
-              $pinia.commit("SET_USER", response.data.user);
+              authStore.SET_AUTH_TOKEN(response.data.token);
+              authStore.SET_USER(response.data.user);
               this.$router.push("/");
             }
           })
