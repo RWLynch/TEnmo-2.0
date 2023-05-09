@@ -41,6 +41,9 @@ const authStore = useStore();
 
 <style>
 header {
+  display: flex;
+  justify-content: center;
+  background-size: cover;
   background-color: white;
 }
 
@@ -50,16 +53,8 @@ a {
   font-style: none;
   text-decoration: none;
 }
-.logo {
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  max-width: 100vw;
-  padding: 0;
-  margin: 0;
-}
+
 body {
-  margin-top: 120px;
   background-color: #b5dfa4;
 }
 
