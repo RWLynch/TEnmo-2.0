@@ -6,6 +6,10 @@ export default {
     userName() {
       const authStore = useStore()
       return authStore.userFirstName
+    },
+    token() {
+      const authStore = useStore()
+      return authStore.tokenCheck
     }
   }
 }
@@ -13,7 +17,8 @@ export default {
 
 <template>
   <div>
-    <h1>Welcome, {{ userName }}!</h1>
+    <h1 class="greeting" v-if="token != ''">Welcome, {{ userName }}!</h1>
+    <h1 class="greeting" v-else="token == ''">Hello! Please log in.</h1>
   </div>
 </template>
 
