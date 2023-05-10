@@ -5,7 +5,7 @@ export default {
   computed: {
     userName() {
       const authStore = useStore()
-      return authStore.userName
+      return authStore.userFirstName
     }
   }
 }

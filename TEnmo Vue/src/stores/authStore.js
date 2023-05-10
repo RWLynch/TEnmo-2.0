@@ -34,7 +34,7 @@ export const useStore = defineStore({
     }
   },
     getters: {
-        userName() {
+        userFirstName() {
           return this.user ? this.user.firstName : '';
         },
         tokenCheck() {

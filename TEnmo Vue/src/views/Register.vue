@@ -58,7 +58,7 @@
           lastName: '',
           email: '',
           phone: '',
-          profilePicture: '',
+          profilePicture: 'C:\Users\piano\OneDrive\Desktop\TEnmo 2\TEnmo Vue\src\assets\default avatar 2.png',
           role: 'user',
         },
         registrationErrors: false,
