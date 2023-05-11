@@ -39,7 +39,7 @@ CREATE TABLE tenmo_user (
 
 CREATE SEQUENCE seq_account_id
   INCREMENT BY 1
-  START WITH 2001
+  START WITH 2002
   NO MAXVALUE;
 
 CREATE TABLE account (
@@ -79,5 +79,3 @@ INSERT INTO transfer_type (transfer_type_desc) VALUES ('Request');
 INSERT INTO transfer_type (transfer_type_desc) VALUES ('Send');
 
 COMMIT;
-
-ROLLBACK;

@@ -33,7 +33,7 @@ const authStore = useStore();
       </div>
     </nav>
       <RouterLink  :to="{ name: 'profile' }" v-if="authStore.tokenCheck != ''">
-          <img class="profile-pic" src="src\assets\default avatar 2.png"/>
+          <img class="profile-pic" src="src/assets/default_avatar_2.png" />
         </RouterLink>
         </div>
 
