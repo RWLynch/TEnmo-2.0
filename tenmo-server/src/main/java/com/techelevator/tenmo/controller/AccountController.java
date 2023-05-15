@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
 @RestController
@@ -16,8 +18,8 @@ public class AccountController {
     AccountDao accountDao;
 
     @GetMapping(path = "/account/{userId}")
-    public Account getAccount(@PathVariable int userId){
-        return accountDao.getAccountByUserId(userId);
+    public BigDecimal getBalanceByUserId(@PathVariable int userId){
+        return accountDao.getBalanceByUserId(userId);
     }
-    
+
 }

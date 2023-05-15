@@ -55,7 +55,7 @@ export default {
           if (response.status == 200) {
             authStore.SET_AUTH_TOKEN(response.data.token);
             authStore.SET_USER(response.data.user);
-            this.$router.push("/home");
+            this.$router.push("/authorized");
           }
         })
         .catch((error) => {

@@ -43,7 +43,7 @@ export const useStore = defineStore({
             return this.token ? this.token : '';
         },
         userId(){
-          return this.user.userId;
+          return this.user.id;
         }
   }
 });
