@@ -15,7 +15,7 @@ export default {
   },
 
   getCurrentUser() {
-    return axios.get()
+    return axios.get('/user')
   },
 
 }

@@ -39,7 +39,11 @@ export const useStore = defineStore({
         },
         tokenCheck() {
             console.log(this.token);
+            console.log(this.user);
             return this.token ? this.token : '';
+        },
+        userId(){
+          return this.user.userId;
         }
   }
 });

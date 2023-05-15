@@ -5,6 +5,7 @@ import Register from '../views/Register.vue'
 import Logout from '../views/Logout.vue'
 import Profile from '../views/Profile.vue'
 import Transactions from '../views/Transactions.vue'
+import Balance from '../views/Balance.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,14 @@ const router = createRouter({
       path: "/authorized",
       name: "authorized",
       component: Transactions,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/balance/",
+      name: "balance",
+      component: Balance,
       meta: {
         requiresAuth: true
       }
