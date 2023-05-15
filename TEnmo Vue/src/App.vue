@@ -20,6 +20,10 @@ const authStore = useStore();
           <span class="link-text">Home</span>
         </RouterLink>
 
+        <RouterLink :to="{ name: 'authorized' }" v-if="authStore.tokenCheck != ''"
+          >Transactions
+        </RouterLink>
+
         <RouterLink :to="{ name: 'login' }" v-if="authStore.tokenCheck == ''"
           >Login</RouterLink>
 

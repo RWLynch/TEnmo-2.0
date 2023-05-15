@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Logout from '../views/Logout.vue'
 import Profile from '../views/Profile.vue'
+import Transactions from '../views/Transactions.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,14 @@ const router = createRouter({
       path: "/profile",
       name: "profile",
       component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/authorized",
+      name: "authorized",
+      component: Transactions,
       meta: {
         requiresAuth: true
       }
