@@ -48,19 +48,19 @@ public class JdbcUserDao implements UserDao {
         }
     }
 
-    @Override
-    public List<User> findAll() {
-        List<User> users = new ArrayList<>();
-        String sql = "SELECT user_id, username, password_hash FROM tenmo_user";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while (results.next()) {
-            User user = mapRowToUser(results);
-            users.add(user);
-        }
-
-        return users;
-    }
+//    @Override
+//    public List<User> findAll() {
+//        List<User> users = new ArrayList<>();
+//        String sql = "SELECT user_id, username, password_hash FROM tenmo_user";
+//
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+//        while (results.next()) {
+//            User user = mapRowToUser(results);
+//            users.add(user);
+//        }
+//
+//        return users;
+//    }
 
     @Override
     public User findByUsername(String username) {
@@ -75,15 +75,15 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public User getAllUsers(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
-
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
         String sql = "SELECT user_id, username, first_name, last_name, profile_picture FROM tenmo_user;";
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, username);
-        if (rowSet.next()) {
-            return mapRowToUser(rowSet);
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+        while (rowSet.next()) {
+            User user = mapRowToUserList(rowSet);
+            users.add(user);
         }
-        throw new UsernameNotFoundException("User " + username + " was not found.");
+        return users;
     }
 
     @Override
@@ -121,6 +121,16 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setActivated(true);
         user.setAuthorities("USER");
+        return user;
+    }
+
+    private User mapRowToUserList(SqlRowSet rs) {
+        User user = new User();
+        user.setId(rs.getInt("user_id"));
+        user.setUsername(rs.getString("username"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setProfilePicture(rs.getString("profile_picture"));
         return user;
     }
 }

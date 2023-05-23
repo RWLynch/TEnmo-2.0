@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDao {
 
-    List<User> findAll();
+//    List<User> findAll();
 
     User getUserById(int id);
 
@@ -14,7 +14,7 @@ public interface UserDao {
 
     int findIdByUsername(String username);
 
-    User getAllUsers(String username);
+    List<User> getAllUsers();
 
     boolean create(String username, String firstName, String lastName, String email, String phone, String password, String profilePicture);
 }
