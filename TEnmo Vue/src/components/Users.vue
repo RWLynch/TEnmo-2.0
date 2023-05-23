@@ -39,9 +39,11 @@ export default {
                     </tr>
                 </thead>
                 <tbody> <!-- optional tag -->
-                    <tr>
-                        <td>C</td>
-                        <td>1972</td>
+                    <tr v-for="user in users" :key="user.userId">
+                        <td class="user-name">{{user.username}}</td>
+                        <td class="first-name">{{user.firstName}}</td>
+                        <td class="last-name">{{user.lastName}}</td>
+                        <td class="profile-pic">{{user.profilePic}}</td>
                     </tr>
                 </tbody>
             </table>
