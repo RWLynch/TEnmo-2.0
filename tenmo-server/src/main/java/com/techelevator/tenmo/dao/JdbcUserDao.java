@@ -75,6 +75,18 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
+    public User getAllUsers(String username) {
+        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+
+        String sql = "SELECT user_id, username, first_name, last_name, profile_picture FROM tenmo_user;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, username);
+        if (rowSet.next()) {
+            return mapRowToUser(rowSet);
+        }
+        throw new UsernameNotFoundException("User " + username + " was not found.");
+    }
+
+    @Override
     public boolean create(String username, String firstName, String lastName, String email, String phone, String password, String profilePicture) {
 
         // create user
