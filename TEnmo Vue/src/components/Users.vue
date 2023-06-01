@@ -17,8 +17,13 @@ export default {
         }
     },
     created() {
+
+        const authStore = useStore();
+
         UserService.getUsersList().then((response) => {
-            this.users = response.data;
+            this.users = response.data.filter(user => user.id !== authStore.getUserId);
+            console.log(authStore.getUserId);
+            console.log(response.data)
         })
     }
 }
@@ -27,10 +32,11 @@ export default {
 
 <template>
     <div>
-        <h1>Pick a user</h1>
+        <h1>Send Money</h1>
+        <h3>Select a user</h3>
         <div>
-            <table>
-                <thead> <!-- optional tag -->
+            <table class="table table-hover">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>First Name</th>
@@ -38,7 +44,7 @@ export default {
                         <th>Profile Photo</th>
                     </tr>
                 </thead>
-                <tbody> <!-- optional tag -->
+                <tbody>
                     <tr v-for="user in users" :key="user.userId">
                         <td class="user-name">{{user.username}}</td>
                         <td class="first-name">{{user.firstName}}</td>
