@@ -34,9 +34,9 @@
         <input type="text" id="phone" v-model="user.phone" required />
       </div>
       <!-- <div class="form-input-group">
-          <label for="profilePicture">Photo URL</label>
-          <input type="text" id="profilePicture" v-model="user.profilePicture" />
-        </div> -->
+        <label for="profilePicture">Profile Picture</label>
+        <img :src="user.profilePicture" alt="Profile Picture" />
+      </div> -->
       <button type="submit">Create Account</button>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
@@ -58,7 +58,7 @@ export default {
         lastName: '',
         email: '',
         phone: '',
-        profilePicture: '',
+        profilePicture: 'src/assets/default_avatar_2.png',
         role: 'user'
       },
       registrationErrors: false,

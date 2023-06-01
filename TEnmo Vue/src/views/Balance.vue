@@ -12,7 +12,7 @@ export default {
   computed: {
     userId() {
       const authStore = useStore()
-      return authStore.userId
+      return authStore.getUserId
     }
   },
   created() {
