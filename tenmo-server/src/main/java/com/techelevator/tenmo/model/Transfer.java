@@ -10,14 +10,16 @@ public class Transfer {
     private int account_from;
     private int account_to;
     private BigDecimal amount;
+    private String note;
 
-    public Transfer(int transfer_id, String transfer_type_desc, String transfer_status_desc, int account_from, int account_to, BigDecimal amount) {
+    public Transfer(int transfer_id, String transfer_type_desc, String transfer_status_desc, int account_from, int account_to, BigDecimal amount, String note) {
         this.transfer_id = transfer_id;
         this.transfer_type = transfer_type_desc;
         this.transfer_status = transfer_status_desc;
         this.account_from = account_from;
         this.account_to = account_to;
         this.amount = amount;
+        this.note = note;
     }
 
     public int getTransfer_id() {
@@ -28,20 +30,20 @@ public class Transfer {
         this.transfer_id = transfer_id;
     }
 
-    public String getTransfer_type_desc() {
+    public String getTransfer_type() {
         return transfer_type;
     }
 
-    public void setTransfer_type_desc(String transfer_type_desc) {
-        this.transfer_type = transfer_type_desc;
+    public void setTransfer_type(String transfer_type) {
+        this.transfer_type = transfer_type;
     }
 
-    public String getTransfer_status_desc() {
+    public String getTransfer_status() {
         return transfer_status;
     }
 
-    public void setTransfer_status_desc(String transfer_status_desc) {
-        this.transfer_status = transfer_status_desc;
+    public void setTransfer_status(String transfer_status) {
+        this.transfer_status = transfer_status;
     }
 
     public int getAccount_from() {
@@ -66,5 +68,13 @@ public class Transfer {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
