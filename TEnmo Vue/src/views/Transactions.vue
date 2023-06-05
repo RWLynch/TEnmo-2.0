@@ -5,19 +5,15 @@
     <div class="buttons">
       
       <RouterLink class="balance" to="balance">
-        <img class="balance" src="src\assets\Balance Icon.png" alt="balance" />
+        <img class="balance" src="src\assets\Balance Button.png" alt="balance" />
       </RouterLink>
 
-      <RouterLink class="send-money" to="send">
-        <img class="send-money" src="src\assets\Send Money Icon.png" alt="send money" />
-      </RouterLink>
-      
-      <RouterLink class="request" to="#">
-        <img class="request" src="src\assets\Request Icon.png" alt="request money" />
+      <RouterLink class="transfer" to="transfer">
+        <img class="transfer" src="src\assets\Pay and Request.png" alt="transfer" />
       </RouterLink>
 
       <RouterLink class="trading" to="#">
-        <img class="trading" src="src\assets\Trading Icon.png" alt="trading" />
+        <img class="trading" src="src\assets\Trading Button.png" alt="trading" />
       </RouterLink>
 
     </div>
@@ -25,9 +21,8 @@
 </template>
 
 <style>
-.send-money:hover,
+.transfer:hover,
 .balance:hover,
-.request:hover,
 .trading:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 8px 8px 8px 0;
   transform: translate3d(0, 2px, 0);
@@ -42,20 +37,15 @@
   row-gap: 20px;
   column-gap: 20px;
   grid-template-areas:
-    'balance send-money'
-    'request trading';
+    'balance transfer trading'
 }
 
-.send-money {
-  grid-area: send-money;
+.transfer {
+  grid-area: transfer;
 }
 
 .balance {
   grid-area: balance;
-}
-
-.request {
-  grid-area: request;
 }
 
 .trading {

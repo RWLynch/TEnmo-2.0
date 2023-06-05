@@ -27,32 +27,33 @@
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">Send Money to (person's name or user name here)</h3>
+          <h3 class="modal-title">{{ selectedUser.username }}</h3>
+          <img :src="selectedUser.profilePicture" class="large-profile-img" />
         </div>
         <div class="modal-body">
           <div class="bal">
-            <h3>Current balance: $ {{ balance }}</h3>
+            <h3>Current balance: ${{ balance }}</h3>
           </div>
           <form>
             <h1 class="h3 mb-3 fw-normal">Please enter an amount.</h1>
             <!-- <div role="alert" v-if="invalidTransaction"> -->
             <!--create function for if send amount is greater than their balance-->
-            Insufficient funds!
             <div class="form-floating">
               <input type="number" min="0.00" class="form-control" id="floatingInput" placeholder="amount">
-              <label for="floatingInput">$</label>
+              <label for="floatingInput">Enter amount $</label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary">Pay</button>
-            <button class="w-100 btn btn-lg btn-primary">Request</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="button" @click="closeModal">Close</button>
-        </div>
+            <div class="btn group">
+              <button class="btn btn-primary btn-lg mx-1">Pay</button>
+              <button class="btn btn-primary btn-lg mx-1">Request</button>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="button" @click="closeModal">Close</button>
       </div>
     </div>
   </div>
-</template>
+</div></template>
   
 <script>
 import { useStore } from '../stores/authStore'
@@ -64,11 +65,15 @@ export default {
   data() {
     return {
       users: [],
-      selectedUser: null,
+      selectedUser: "",
       showModal: false,
       balance: null,
       transfer: {
-        amount:
+        transferType: null,
+        transferStatus: null,
+        accountFrom: null,
+        accountTo: null,
+        amount: 0
       }
     }
   },
@@ -94,7 +99,7 @@ export default {
       this.showModal = true;
     },
     closeModal() {
-      this.selectedUser = null;
+      this.selectedUser = "";
       this.showModal = false;
     },
     bal(userId) {
@@ -117,6 +122,13 @@ export default {
 .profile-img {
   max-height: 30px;
   max-width: 30px;
+  border-radius: 50%;
+  border: 2px white solid;
+}
+
+.large-profile-img {
+  max-height: 75px;
+  max-width: 75px;
   border-radius: 50%;
   border: 2px white solid;
 }

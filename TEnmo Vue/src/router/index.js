@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Profile from '../views/Profile.vue'
 import Transactions from '../views/Transactions.vue'
 import Balance from '../views/Balance.vue'
-import SendMoney from '../views/SendMoney.vue'
+import Transfer from '../views/Transfer.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -65,9 +65,9 @@ const router = createRouter({
       }
     },
     {
-      path: "/send",
-      name: "send",
-      component: SendMoney,
+      path: "/transfer",
+      name: "transfer",
+      component: Transfer,
       meta: {
         requiresAuth: true
       }

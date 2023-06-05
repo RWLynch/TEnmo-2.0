@@ -1,8 +1,7 @@
 <template>
-  <h1>Send Money</h1>
+  <h1>Transfer</h1>
   <h3>Select a user</h3>
   <Users />
-  //modal
 </template>
 
 <script>
