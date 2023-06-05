@@ -42,6 +42,10 @@
               <input type="number" min="0.00" class="form-control" id="floatingInput" placeholder="amount">
               <label for="floatingInput">Enter amount $</label>
             </div>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInput" placeholder="note">
+              <label for="floatingInput">Note</label>
+            </div>
             <div class="btn group">
               <button class="btn btn-primary btn-lg mx-1">Pay</button>
               <button class="btn btn-primary btn-lg mx-1">Request</button>
@@ -73,7 +77,8 @@ export default {
         transferStatus: null,
         accountFrom: null,
         accountTo: null,
-        amount: 0
+        amount: 0,
+        note: ""
       }
     }
   },
