@@ -5,20 +5,16 @@ import java.math.BigDecimal;
 public class Transfer {
 
     private int transfer_id;
-    private int transfer_type_id;
-    private String transfer_type_desc;
-    private int transfer_status_id;
-    private String transfer_status_desc;
+    private String transfer_type;
+    private String transfer_status;
     private int account_from;
     private int account_to;
     private BigDecimal amount;
 
-    public Transfer(int transfer_id, int transfer_type_id, String transfer_type_desc, int transfer_status_id, String transfer_status_desc, int account_from, int account_to, BigDecimal amount) {
+    public Transfer(int transfer_id, String transfer_type_desc, String transfer_status_desc, int account_from, int account_to, BigDecimal amount) {
         this.transfer_id = transfer_id;
-        this.transfer_type_id = transfer_type_id;
-        this.transfer_type_desc = transfer_type_desc;
-        this.transfer_status_id = transfer_status_id;
-        this.transfer_status_desc = transfer_status_desc;
+        this.transfer_type = transfer_type_desc;
+        this.transfer_status = transfer_status_desc;
         this.account_from = account_from;
         this.account_to = account_to;
         this.amount = amount;
@@ -32,36 +28,20 @@ public class Transfer {
         this.transfer_id = transfer_id;
     }
 
-    public int getTransfer_type_id() {
-        return transfer_type_id;
-    }
-
-    public void setTransfer_type_id(int transfer_type_id) {
-        this.transfer_type_id = transfer_type_id;
-    }
-
     public String getTransfer_type_desc() {
-        return transfer_type_desc;
+        return transfer_type;
     }
 
     public void setTransfer_type_desc(String transfer_type_desc) {
-        this.transfer_type_desc = transfer_type_desc;
-    }
-
-    public int getTransfer_status_id() {
-        return transfer_status_id;
-    }
-
-    public void setTransfer_status_id(int transfer_status_id) {
-        this.transfer_status_id = transfer_status_id;
+        this.transfer_type = transfer_type_desc;
     }
 
     public String getTransfer_status_desc() {
-        return transfer_status_desc;
+        return transfer_status;
     }
 
     public void setTransfer_status_desc(String transfer_status_desc) {
-        this.transfer_status_desc = transfer_status_desc;
+        this.transfer_status = transfer_status_desc;
     }
 
     public int getAccount_from() {
