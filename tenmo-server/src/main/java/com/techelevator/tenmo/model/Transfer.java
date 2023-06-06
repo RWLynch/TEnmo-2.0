@@ -7,12 +7,12 @@ public class Transfer {
     private int transfer_id;
     private String transfer_type;
     private String transfer_status;
-    private int account_from;
-    private int account_to;
+    private Integer account_from;
+    private Integer account_to;
     private BigDecimal amount;
     private String note;
 
-    public Transfer(int transfer_id, String transfer_type_desc, String transfer_status_desc, int account_from, int account_to, BigDecimal amount, String note) {
+    public Transfer(int transfer_id, String transfer_type_desc, String transfer_status_desc, Integer account_from, Integer account_to, BigDecimal amount, String note) {
         this.transfer_id = transfer_id;
         this.transfer_type = transfer_type_desc;
         this.transfer_status = transfer_status_desc;
@@ -20,6 +20,10 @@ public class Transfer {
         this.account_to = account_to;
         this.amount = amount;
         this.note = note;
+    }
+
+    public Transfer() {
+
     }
 
     public int getTransfer_id() {
@@ -50,7 +54,7 @@ public class Transfer {
         return account_from;
     }
 
-    public void setAccount_from(int account_from) {
+    public void setAccount_from(Integer account_from) {
         this.account_from = account_from;
     }
 
@@ -58,7 +62,7 @@ public class Transfer {
         return account_to;
     }
 
-    public void setAccount_to(int account_to) {
+    public void setAccount_to(Integer account_to) {
         this.account_to = account_to;
     }
 
