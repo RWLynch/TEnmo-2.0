@@ -48,6 +48,14 @@ public class JdbcUserDao implements UserDao {
         }
     }
 
+    @Override
+    public boolean updateUser(int id, User updatedUser) {
+        String sql = "UPDATE tenmo_user SET username = ?, first_name = ?, last_name = ?, email = ?, phone = ? WHERE user_id = ?;";
+        int rowsUpdated = jdbcTemplate.update(sql,updatedUser.getUsername(), updatedUser.getFirstName(), updatedUser.getLastName(), updatedUser.getEmail(), updatedUser.getPhone(), id);
+        return rowsUpdated > 0; // Return true if at least one row was updated
+    }
+
+
 //    @Override
 //    public List<User> findAll() {
 //        List<User> users = new ArrayList<>();
@@ -131,6 +139,17 @@ public class JdbcUserDao implements UserDao {
         user.setFirstName(rs.getString("first_name"));
         user.setLastName(rs.getString("last_name"));
         user.setProfilePicture(rs.getString("profile_picture"));
+        return user;
+    }
+
+    private User mapRowToUserUpdate(SqlRowSet rs) {
+        User user = new User();
+        user.setId(rs.getInt("user_id"));
+        user.setUsername(rs.getString("username"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
+        user.setPhone(rs.getString("phone"));
         return user;
     }
 }

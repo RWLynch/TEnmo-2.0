@@ -4,9 +4,7 @@ import com.techelevator.tenmo.dao.UserDao;
 import com.techelevator.tenmo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,8 @@ public class UserController {
         return userDao.getAllUsers();
     }
 
+    @PatchMapping(path = "/users/update/{id}")
+    public boolean updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+        return userDao.updateUser(id, updatedUser);
+    }
 }

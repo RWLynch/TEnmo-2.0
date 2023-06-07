@@ -44,6 +44,10 @@ export const useStore = defineStore({
         },
         getUserId(){
           return this.user.id;
+        },
+        getCurrentUser() {
+          console.log(this.user)
+          return this.user;
         }
   }
 });

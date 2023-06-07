@@ -10,6 +10,9 @@ public interface UserDao {
 
     User getUserById(int id);
 
+
+    boolean updateUser(int id, User updatedUser);
+
     User findByUsername(String username);
 
     int findIdByUsername(String username);

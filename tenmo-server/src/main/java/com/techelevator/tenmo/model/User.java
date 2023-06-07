@@ -23,6 +23,15 @@ public class User {
 
    public User() { }
 
+   public User(int id, String username, String firstName, String lastName, String email, String phone) {
+      this.id = id;
+      this.username = username;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.phone = phone;
+   }
+
    public User(int id, String username, String firstName, String lastName, String email, String phone, String profilePicture, String password, boolean activated, Set<Authority> authorities) {
       this.id = id;
       this.username = username;

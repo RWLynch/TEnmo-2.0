@@ -27,7 +27,9 @@
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">{{ selectedUser.username }} - {{ selectedUser.firstName }} {{ selectedUser.lastName }}</h3>
+          <h3 class="modal-title">
+            {{ selectedUser.username }} - {{ selectedUser.firstName }} {{ selectedUser.lastName }}
+          </h3>
           <img :src="selectedUser.profilePicture" class="large-profile-img" />
         </div>
         <div class="modal-body">
@@ -38,27 +40,32 @@
             <h1 class="h3 mb-3 fw-normal">Please enter an amount.</h1>
             <!-- <div role="alert" v-if="invalidTransaction"> -->
             <!--create function for if send amount is greater than their balance-->
-            <div class="form-floating">
-              <input type="number" min="0.00" class="form-control" id="floatingInput" placeholder="amount">
-              <label for="floatingInput">Enter amount $</label>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input type="number" class="form-control" placeholder="0.00" min="0.00" />
             </div>
+
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="note">
+              <input type="text" class="form-control" id="floatingInput" placeholder="note" />
               <label for="floatingInput">Note</label>
             </div>
             <div class="btn group">
               <button class="btn btn-primary btn-lg mx-1">Pay</button>
               <button class="btn btn-primary btn-lg mx-1">Request</button>
             </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="button" @click="closeModal">Close</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="button" @click="closeModal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div></template>
-  
+</template>
+
 <script>
 import { useStore } from '../stores/authStore'
 import UserService from '../services/UserService'
@@ -69,7 +76,7 @@ export default {
   data() {
     return {
       users: [],
-      selectedUser: "",
+      selectedUser: '',
       showModal: false,
       balance: null,
       transfer: {
@@ -78,7 +85,7 @@ export default {
         accountFrom: null,
         accountTo: null,
         amount: 0,
-        note: ""
+        note: ''
       }
     }
   },
@@ -100,12 +107,12 @@ export default {
   },
   methods: {
     openModal(user) {
-      this.selectedUser = user;
-      this.showModal = true;
+      this.selectedUser = user
+      this.showModal = true
     },
     closeModal() {
-      this.selectedUser = "";
-      this.showModal = false;
+      this.selectedUser = ''
+      this.showModal = false
     },
     bal(userId) {
       TransactionService.getBalance(userId)
@@ -117,12 +124,12 @@ export default {
         })
     },
     setTwoNumberDecimal(event) {
-      this.value = parseFloat(this.value).toFixed(2);
+      this.value = parseFloat(this.value).toFixed(2)
     }
   }
 }
 </script>
-  
+
 <style>
 .profile-img {
   max-height: 30px;
@@ -185,4 +192,3 @@ export default {
   justify-content: flex-end;
 }
 </style>
-  
