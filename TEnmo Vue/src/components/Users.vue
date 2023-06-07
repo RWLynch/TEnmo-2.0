@@ -27,7 +27,7 @@
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">{{ selectedUser.username }}</h3>
+          <h3 class="modal-title">{{ selectedUser.username }} - {{ selectedUser.firstName }} {{ selectedUser.lastName }}</h3>
           <img :src="selectedUser.profilePicture" class="large-profile-img" />
         </div>
         <div class="modal-body">
